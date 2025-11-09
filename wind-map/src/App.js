@@ -38,7 +38,6 @@ function App() {
   const [windDataTimestamp, setWindDataTimestamp] = useState(null);
   const [buoyData, setBuoyData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchWindData();
@@ -339,7 +338,7 @@ function App() {
           <WindArrow
             position={[OCEANSIDE_MARINA.lat, OCEANSIDE_MARINA.lng]}
             direction={windData.wind.deg}
-            speed={windData.wind.speed}
+            speed={windData.wind.speed * 0.868976}
           />
         )}
       </MapContainer>

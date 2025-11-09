@@ -17,9 +17,9 @@ const WindArrow = ({ position, direction, speed }) => {
             <line x1="0" y1="-20" x2="0" y2="15" stroke="#2196F3" stroke-width="3" />
             <!-- Arrow head -->
             <polygon points="0,-25 -6,-15 6,-15" fill="#2196F3" />
-            <!-- Speed indicator circles -->
-            ${speed > 10 ? '<circle cx="0" cy="5" r="2" fill="#2196F3" />' : ''}
-            ${speed > 20 ? '<circle cx="0" cy="10" r="2" fill="#2196F3" />' : ''}
+            <!-- Speed indicator circles (thresholds in knots) -->
+            ${speed > 8.7 ? '<circle cx="0" cy="5" r="2" fill="#2196F3" />' : ''}
+            ${speed > 17.4 ? '<circle cx="0" cy="10" r="2" fill="#2196F3" />' : ''}
           </g>
         </g>
       </svg>
@@ -36,7 +36,7 @@ const WindArrow = ({ position, direction, speed }) => {
 
     // Add tooltip with wind info
     marker.bindTooltip(
-      `Wind: ${speed.toFixed(1)} mph at ${direction}°`,
+      `Wind: ${speed.toFixed(1)} kts at ${direction}°`,
       { permanent: false, direction: 'top', offset: [0, -20] }
     );
 
