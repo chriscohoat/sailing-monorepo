@@ -225,7 +225,6 @@ function App() {
           </>
         )}
         {loading && <div className="loading">Loading wind data...</div>}
-        {error && <div className="error">Error: {error}</div>}
       </header>
 
       <MapContainer

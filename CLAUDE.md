@@ -34,6 +34,15 @@ cd wind-map
 npm run build
 ```
 
+**Lint and validate code:**
+```bash
+cd wind-map
+npm start  # ESLint runs automatically in dev mode
+npm run build  # Full lint check before production build
+```
+
+Note: ESLint is configured to run automatically. Always check the browser console and terminal for linting errors before committing code.
+
 ## Environment Setup
 
 **Required: OpenWeatherMap API key**
@@ -151,6 +160,15 @@ Network-dependent code must handle failures gracefully:
 - Verify silent error handling (no user-facing errors for transient network issues)
 - Test unit conversions with known values
 - Example: `App.test.js:29-51` tests `ERR_NETWORK_CHANGED` scenario
+
+## Development Workflow
+
+**Before committing code:**
+1. Run `npm start` and verify no ESLint errors in terminal or browser console
+2. Run `npm run build` to ensure production build succeeds
+3. Check for unused variables, undefined references, and import errors
+4. Verify all units are in nautical format (knots, feet, °F)
+5. Test network error scenarios (cache fallback should work gracefully)
 
 ## Future Phases
 
